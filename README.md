@@ -1,8 +1,4 @@
-# OOPS-notes
-
-
 # DESTRUCTOR 
-
 Destructor is an instance member function that is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
 
 ** Objects are destroyed in the reverse order of their creation. In this case, t3 is the first to be destroyed, while t is the last. Destructor runs first for object created at last **
@@ -99,7 +95,7 @@ CORRECTED CODE
 
 # Static Data Members
 
-                Static data members are class members that are declared using static keywords. A static member has certain special characteristics which are as follows:
+Static data members are class members that are declared using static keywords. A static member has certain special characteristics which are as follows:
 
 
 Only one copy of that member is created for the entire class and is shared by all the objects of that class, no matter how many objects are created.
@@ -235,3 +231,44 @@ CORRECTED CODE
 
                         ## The above program calls B’s constructor 3 times for 3 objects (b1, b2, and b3), but calls A’s constructor only once. The reason is that the static                                 members are shared among all objects. That is why they are also known as class members or class fields.
                                                                         
+
+
+
+
+# STATIC MEMBER FUNCTION
+
+Static members of a class are not associated with the objects of the class. Just like a static variable once declared is allocated with memory that can’t be changed every object points to the same memory. 
+
+                
+                
+                class Student {
+                public:
+                	// static member
+                	static int total;
+                
+                	// Constructor called
+                	Student() { total += 1; }
+                };
+                
+                int Student::total = 0;
+                
+                int main()
+                {
+                	// Student 1 declared
+                	Student s1;
+                	cout << "Number of students:" << s1.total << endl;
+                
+                	// Student 2 declared
+                	Student s2;
+                	cout << "Number of students:" << s2.total << endl;
+                
+                	// Student 3 declared
+                	Student s3;
+                	cout << "Number of students:" << s3.total << endl;
+                	return 0;
+                }
+
+                # Output
+                Number of students:1
+                Number of students:2
+                Number of students:3
