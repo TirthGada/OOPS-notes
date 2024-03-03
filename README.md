@@ -95,4 +95,143 @@ CORRECTED CODE
           Constructing derived
           Destructing derived
           Destructing base
-                    
+
+
+# Static Data Members
+
+                Static data members are class members that are declared using static keywords. A static member has certain special characteristics which are as follows:
+
+
+Only one copy of that member is created for the entire class and is shared by all the objects of that class, no matter how many objects are created.
+
+It is initialized before any object of this class is created, even before the main starts.
+
+It is visible only within the class, but its lifetime is the entire program.
+
+
+                class A {
+                public:
+                	A() 
+                	{ 
+                	cout << "A's Constructor Called " << 
+                			endl; 
+                	}
+                };
+                
+                class B {
+                	static A a;
+                
+                public:
+                	B() 
+                	{ 
+                	cout << "B's Constructor Called " << 
+                			endl; 
+                	}
+                };
+                
+                // Driver code
+                int main()
+                {
+                	B b;
+                	return 0;
+                }
+
+                # OUTPUT 
+                B's Constructor Called 
+
+
+
+***********
+
+// C++ Program to demonstrate 
+// the Compilation Error occurred
+// due to violation of Static
+                        
+                        class A {
+                        	int x;
+                        
+                        public:
+                        	A() 
+                        	{ 
+                        	cout << "A's constructor called " << 
+                        			endl; 
+                        	}
+                        };
+                        
+                        class B {
+                        	static A a;
+                        
+                        public:
+                        	B() 
+                        	{ 
+                        	cout << "B's constructor called " << 
+                        			endl; 
+                        	}
+                        	static A getA() 
+                        	{ 
+                        	return a; 
+                        	}
+                        };
+                        
+                        // Driver code
+                        int main()
+                        {
+                        	B b;
+                        	A a = b.getA();
+                        	return 0;
+                        }
+
+
+CORRECTED CODE
+
+
+// C++ program to access static data
+// member with explicit definition
+                        
+                        class A {
+                        	int x;
+                        
+                        public:
+                        	A() 
+                        	{ 
+                        	cout << "A's constructor called " << 
+                        			endl; 
+                        	}
+                        };
+                        
+                        class B {
+                        	static A a;
+                        
+                        public:
+                        	B() 
+                        	{ 
+                        	cout << "B's constructor called " << 
+                        			endl; 
+                        	}
+                        	static A getA() 
+                        	{ 
+                        	return a; 
+                        	}
+                        };
+                        
+                        // Definition of a
+                        A B::a; 
+                        
+                        // Driver code
+                        int main()
+                        {
+                        B b1, b2, b3;
+                        A a = b1.getA();
+                        
+                        return 0;
+                        }
+                        
+                        OUTPUT
+
+                        A's constructor called 
+                        B's constructor called 
+                        B's constructor called 
+                        B's constructor called 
+
+                        ## The above program calls B’s constructor 3 times for 3 objects (b1, b2, and b3), but calls A’s constructor only once. The reason is that the static                                 members are shared among all objects. That is why they are also known as class members or class fields.
+                                                                        
