@@ -5,6 +5,49 @@
 
 Protected access modifier is similar to that of private access modifiers, the difference is that the class member declared as Protected are inaccessible outside the class but they can be accessed by any subclass(derived class) of that class.
 
+Example 
+                        
+                        class A
+                        {protected:
+                        	int a;
+                        	public:
+                        		void set_A()
+                        		{
+                        			cout<<"Enter the Value of A=";
+                        			cin>>a;	
+                        		}
+                        		void disp_A()
+                        		{
+                        			cout<<endl<<"Value of A="<<a;
+                        		}
+                        };
+                        class B: public A
+                        {int b,p;
+                        	public:
+                        		void set_B()
+                        		{
+                        			set_A();
+                        			cout<<"Enter the Value of B=";
+                        			cin>>b;
+                        		}
+                        		void disp_B()
+                        		{
+                        			disp_A();
+                        			cout<<endl<<"Value of B="<<b;
+                        		}
+                        		void cal_product()
+                        		{p=a*b;
+                        			cout<<endl<<"Product of "<<a<<" * "<<b<<" = "<<p;
+                        		}
+                        		};
+                        int main()
+                        { B _b;
+                        	_b.set_B();
+                        	_b.cal_product();
+                        	return 0;}
+
+
+Creating object of sub class will invoke the constructor of base classes
 
 ********
 1. class ABC : private XYZ              //private derivation
