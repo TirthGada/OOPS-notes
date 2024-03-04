@@ -1,3 +1,4 @@
+**Inheritance notes in other branch**
 # DESTRUCTOR 
 Destructor is an instance member function that is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
 
