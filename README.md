@@ -1,275 +1,119 @@
-**Inheritance notes in other branch**
-# DESTRUCTOR 
-Destructor is an instance member function that is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+# Encapsulation
+Encapsulation in C++ is defined as the wrapping up of data and information in a single unit. In Object Oriented Programming, Encapsulation is defined as binding together the data and the functions that manipulate them.
 
-** Objects are destroyed in the reverse order of their creation. In this case, t3 is the first to be destroyed, while t is the last. Destructor runs first for object created at last **
+Consider a real-life example of encapsulation, in a company, there are different sections like the accounts section, finance section, sales section, etc. Now,
 
-A destructor is also a special member function like a constructor. Destructor destroys the class objects created by the constructor. 
+The finance section handles all the financial transactions and keeps records of all the data related to finance.
+Similarly, the sales section handles all the sales-related activities and keeps records of all the sales.
+Now there may arise a situation when for some reason an official from the finance section needs all the data about sales in a particular month.
 
-Destructor has the same name as their class name preceded by a tilde (~) symbol.
-
-It is not possible to define more than one destructor. 
-
-The destructor is only one way to destroy the object created by the constructor. Hence destructor can-not be overloaded.
-
-Destructor neither requires any argument nor returns any value.
-
-It is automatically called when an object goes out of scope. 
-
-Destructor release memory space occupied by the objects created by the constructor.
-
-In destructor, objects are destroyed in the reverse of an object creation.
+In this case, he is not allowed to directly access the data of the sales section. He will first have to contact some other officer in the sales section and then request him to give the particular data.
 
 
+Two Important  property of Encapsulation 
 
-# VIRTUAL DESTRUCTOR
+Data Protection: Encapsulation protects the internal state of an object by keeping its data members private. Access to and modification of these data members is restricted to the class’s public methods, ensuring controlled and secure data manipulation.
 
-
-Deleting a derived class object using a pointer of base class type that has a non-virtual destructor results in undefined behavior. To correct this situation, the base class should be defined with a virtual destructor. 
-For example, the following program results in undefined behavior. 
-
-        
-        class base {
-        public:
-        	base()	 
-        	{ cout << "Constructing base\n"; }
-        	~base()
-        	{ cout<< "Destructing base\n"; }	 
-        };
-        
-        class derived: public base {
-        public:
-        	derived()	 
-        	{ cout << "Constructing derived\n"; }
-        	~derived()
-        	{ cout << "Destructing derived\n"; }
-        };
-        
-        int main()
-        {
-        derived *d = new derived(); 
-        base *b = d;
-        delete b;
-        getchar();
-        return 0;
-        }
-
-        ## 
-        Constructing base
-        Constructing derived
-        Destructing base
-
-
-CORRECTED CODE
-          
-          class base {
-          public:
-          	base()	 
-          	{ cout << "Constructing base\n"; }
-          	virtual ~base()
-          	{ cout << "Destructing base\n"; }	 
-          };
-          
-          class derived : public base {
-          public:
-          	derived()	 
-          	{ cout << "Constructing derived\n"; }
-          	~derived()
-          	{ cout << "Destructing derived\n"; }
-          };
-          
-          int main()
-          {
-          derived *d = new derived(); 
-          base *b = d;
-          delete b;
-          getchar();
-          return 0;
-          }
-
-          ## OUTPUT 
-          Constructing base
-          Constructing derived
-          Destructing derived
-          Destructing base
-
-
-# Static Data Members
-
-Static data members are class members that are declared using static keywords. A static member has certain special characteristics which are as follows:
-
-
-Only one copy of that member is created for the entire class and is shared by all the objects of that class, no matter how many objects are created.
-
-It is initialized before any object of this class is created, even before the main starts.
-
-It is visible only within the class, but its lifetime is the entire program.
-
-
-                class A {
+Information Hiding: Encapsulation hides the internal implementation details of a class from external code. Only the public interface of the class is accessible, providing abstraction and simplifying the usage of the class while allowing the internal implementation to be modified without impacting external code.
+                
+                
+                class temp{
+                	int a;
+                int b;
                 public:
-                	A() 
-                	{ 
-                	cout << "A's Constructor Called " << 
-                			endl; 
-                	}
+                int solve(int input){
+                	a=input;
+                	b=a/2;
+                	return b;
+                }
                 };
                 
-                class B {
-                	static A a;
+                int main() {
+                int n;
+                cin>>n;
+                temp half;
+                int ans=half.solve(n);
+                cout<<ans<<endl;
+                	
+                }
+
+
+Features of Encapsulation
+Below are the features of encapsulation:
+
+We can not access any function from the class directly. We need an object to access that function that is using the member variables of that class. 
+
+The function which we are making inside the class must use only member variables, only then it is called encapsulation.
+
+If we don’t make a function inside the class which is using the member variable of the class then we don’t call it encapsulation.
+
+Encapsulation improves readability, maintainability, and security by grouping data and methods together.
+
+It helps to control the modification of our data members.
+
+
+// C++ program to demonstrate
+                // Encapsulation
+                class Encapsulation {
+                private:
+                	// Data hidden from outside world
+                	int x;
                 
                 public:
-                	B() 
-                	{ 
-                	cout << "B's Constructor Called " << 
-                			endl; 
-                	}
+                	// Function to set value of
+                	// variable x
+                	void set(int a) { x = a; }
+                
+                	// Function to return value of
+                	// variable x
+                	int get() { return x; }
                 };
                 
                 // Driver code
                 int main()
                 {
-                	B b;
+                	Encapsulation obj;
+                	obj.set(5);
+                	cout << obj.get();
                 	return 0;
                 }
 
-                # OUTPUT 
-                B's Constructor Called 
 
+# ABSTRACTION
 
+Data abstraction is one of the most essential and important features of object-oriented programming in C++. Abstraction means displaying only essential information and hiding the details. Data abstraction refers to providing only essential information about the data to the outside world, hiding the background details or implementation. 
 
-***********
-
-// C++ Program to demonstrate 
-// the Compilation Error occurred
-// due to violation of Static
-                        
-                        class A {
-                        	int x;
-                        
-                        public:
-                        	A() 
-                        	{ 
-                        	cout << "A's constructor called " << 
-                        			endl; 
-                        	}
-                        };
-                        
-                        class B {
-                        	static A a;
-                        
-                        public:
-                        	B() 
-                        	{ 
-                        	cout << "B's constructor called " << 
-                        			endl; 
-                        	}
-                        	static A getA() 
-                        	{ 
-                        	return a; 
-                        	}
-                        };
-                        
-                        // Driver code
-                        int main()
-                        {
-                        	B b;
-                        	A a = b.getA();
-                        	return 0;
-                        }
-
-
-CORRECTED CODE
-
-
-// C++ program to access static data
-// member with explicit definition
-                        
-                        class A {
-                        	int x;
-                        
-                        public:
-                        	A() 
-                        	{ 
-                        	cout << "A's constructor called " << 
-                        			endl; 
-                        	}
-                        };
-                        
-                        class B {
-                        	static A a;
-                        
-                        public:
-                        	B() 
-                        	{ 
-                        	cout << "B's constructor called " << 
-                        			endl; 
-                        	}
-                        	static A getA() 
-                        	{ 
-                        	return a; 
-                        	}
-                        };
-                        
-                        // Definition of a
-                        A B::a; 
-                        
-                        // Driver code
-                        int main()
-                        {
-                        B b1, b2, b3;
-                        A a = b1.getA();
-                        
-                        return 0;
-                        }
-                        
-                        OUTPUT
-
-                        A's constructor called 
-                        B's constructor called 
-                        B's constructor called 
-                        B's constructor called 
-
-                        ## The above program calls B’s constructor 3 times for 3 objects (b1, b2, and b3), but calls A’s constructor only once. The reason is that the static                                 members are shared among all objects. That is why they are also known as class members or class fields.
-                                                                        
-
-
-
-
-# STATIC MEMBER FUNCTION
-
-Static members of a class are not associated with the objects of the class. Just like a static variable once declared is allocated with memory that can’t be changed every object points to the same memory. 
-
+Consider a real-life example of a man driving a car. The man only knows that pressing the accelerator will increase the speed of the car or applying brakes will stop the car but he does not know how on pressing the accelerator the speed is actually increasing, he does not know about the inner mechanism of the car or the implementation of the accelerator, brakes, etc in the car. This is what abstraction is.
                 
+                class implementAbstraction {
+                private:
+                	int a, b;
                 
-                class Student {
                 public:
-                	// static member
-                	static int total;
+                	// method to set values of
+                	// private members
+                	void set(int x, int y)
+                	{
+                		a = x;
+                		b = y;
+                	}
                 
-                	// Constructor called
-                	Student() { total += 1; }
+                	void display()
+                	{
+                		cout << "a = " << a << endl;
+                		cout << "b = " << b << endl;
+                	}
                 };
-                
-                int Student::total = 0;
                 
                 int main()
                 {
-                	// Student 1 declared
-                	Student s1;
-                	cout << "Number of students:" << s1.total << endl;
-                
-                	// Student 2 declared
-                	Student s2;
-                	cout << "Number of students:" << s2.total << endl;
-                
-                	// Student 3 declared
-                	Student s3;
-                	cout << "Number of students:" << s3.total << endl;
+                	implementAbstraction obj;
+                	obj.set(10, 20);
+                	obj.display();
                 	return 0;
                 }
 
-                # Output
-                Number of students:1
-                Number of students:2
-                Number of students:3
+Output
+a = 10
+b = 20
+You can see in the above program we are not allowed to access the variables a and b directly, however, one can call the function set() to set the values in a and b and the function display() to display the values of a and b. 
