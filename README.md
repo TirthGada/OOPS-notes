@@ -19,7 +19,7 @@ In this case, he is not allowed to directly access the data of the sales section
             int xyz;
             } 
             
-Encapsulation mainly refers to the property of wrapping up all info like spped , color , fuel capacity and many more inside the the class car 
+ **Encapsulation mainly refers to the property of wrapping up all info like spped , color , fuel capacity and many more inside the the class car**
 
 
 Two Important  property of Encapsulation 
