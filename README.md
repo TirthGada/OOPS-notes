@@ -10,6 +10,18 @@ Now there may arise a situation when for some reason an official from the financ
 In this case, he is not allowed to directly access the data of the sales section. He will first have to contact some other officer in the sales section and then request him to give the particular data.
 
 
+            Encapsulation code
+
+            class car {
+            int speed;
+            char color;
+            int fuel;
+            int xyz;
+            } 
+            
+Encapsulation mainly refers to the property of wrapping up all info like spped , color , fuel capacity and many more inside the the class car 
+
+
 Two Important  property of Encapsulation 
 
 Data Protection: Encapsulation protects the internal state of an object by keeping its data members private. Access to and modification of these data members is restricted to the class’s public methods, ensuring controlled and secure data manipulation.
@@ -85,35 +97,6 @@ Data abstraction is one of the most essential and important features of object-o
 
 Consider a real-life example of a man driving a car. The man only knows that pressing the accelerator will increase the speed of the car or applying brakes will stop the car but he does not know how on pressing the accelerator the speed is actually increasing, he does not know about the inner mechanism of the car or the implementation of the accelerator, brakes, etc in the car. This is what abstraction is.
                 
-                class implementAbstraction {
-                private:
-                	int a, b;
-                
-                public:
-                	// method to set values of
-                	// private members
-                	void set(int x, int y)
-                	{
-                		a = x;
-                		b = y;
-                	}
-                
-                	void display()
-                	{
-                		cout << "a = " << a << endl;
-                		cout << "b = " << b << endl;
-                	}
-                };
-                
-                int main()
-                {
-                	implementAbstraction obj;
-                	obj.set(10, 20);
-                	obj.display();
-                	return 0;
-                }
-
-Output
-a = 10
-b = 20
 You can see in the above program we are not allowed to access the variables a and b directly, however, one can call the function set() to set the values in a and b and the function display() to display the values of a and b. 
+
+<img width="1440" alt="Screenshot 2024-03-07 at 12 10 06 AM" src="https://github.com/TirthGada/OOPS-notes/assets/118129263/5b0749a1-8478-4569-a3c9-cc7f3523b159">
