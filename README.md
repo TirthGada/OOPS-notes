@@ -1,3 +1,87 @@
+# POLYMORPHISM
+
+
+**one name , multiple forms**
+
+**Compile-time and Runtime are the two programming terms used in the software development. Compile-time is the time at which the source code is converted into an executable code while the run time is the time at which the executable code is started running. Both the compile-time and runtime refer to different types of error.**
+
+
+## Compile time polymorphism ( Early Binding ) :  Function Overloading & Operator Overloading
+                        
+                        // C++ program to demonstrate
+                        // function overloading or
+                        class Geeks {
+                        public:
+                        	// Function with 1 int parameter
+                        	void func(int x)
+                        	{
+                        		cout << "value of x is " << x << endl;
+                        	}
+                        
+                        	// Function with same name but
+                        	// 1 double parameter
+                        	void func(double x)
+                        	{
+                        		cout << "value of x is " << x << endl;
+                        	}
+                        
+                        	// Function with same name and
+                        	// 2 int parameters
+                        	void func(int x, int y)
+                        	{
+                        		cout << "value of x and y is " << x << ", " << y
+                        			<< endl;
+                        	}
+                        };
+
+
+
+**Operator overloading**
+
+// C++ program to demonstrate
+
+// Operator Overloading or
+                                    
+
+                                    **2)**
+                                    class Complex {
+                                    private:
+                                    	int real, imag;
+                                    
+                                    public:
+                                    	Complex(int r = 0, int i = 0)
+                                    	{
+                                    		real = r;
+                                    		imag = i;
+                                    	}
+                                    
+                                    	// This is automatically called
+                                    	// when '+' is used with between
+                                    	// two Complex objects
+                                    	Complex operator+(Complex const& obj)
+                                    	{
+                                    		Complex res;
+                                    		res.real = real + obj.real;
+                                    		res.imag = imag + obj.imag;
+                                    		return res;
+                                    	}
+                                    	void print() { cout << real << " + i" << imag << endl; }
+                                    };
+                                    
+                                    int main()
+                                    {
+                                    	Complex c1(10, 5), c2(2, 4);
+                                    
+                                    	// An example call to "operator+"
+                                    	Complex c3 = c1 + c2;
+                                    	c3.print();
+                                    }
+
+## Run time polymorphism : Virtual Functions
+
+
+
+**********
 # Encapsulation
 Encapsulation in C++ is defined as the wrapping up of data and information in a single unit. In Object Oriented Programming, Encapsulation is defined as binding together the data and the functions that manipulate them.
 
