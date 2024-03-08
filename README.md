@@ -38,12 +38,49 @@
 
 **Operator overloading**
 
+**Operator overloading is a feature in many programming languages that allows you to redefine the behavior of certain operators (such as +, -, *, /, etc.) for user-defined data types.* This means you can define how operators should work when applied to objects of your custom classes.**
+
+For example, in a programming language that supports operator overloading, you could define how the + operator should behave when applied to two instances of a class you've created. This enables you to write code that looks more intuitive and expressive.
+
+
 // C++ program to demonstrate
 
 // Operator Overloading or
-                                    
 
-                                    **2)**
+                                    **1)** Unary Operator overloading
+
+                                    class Increase{
+                                    private:
+                                      int value;
+
+                                    public:
+                                      Increase()
+                                      {
+                                      value=10;
+                                      }
+
+                                      void operator ++()
+                                      {
+                                      value=value+5;
+                                      }
+                                      void display(){
+                                      cout<<"Value is"<<value;}
+                                      };  
+
+                                      int main(){
+                                      Increase inc;
+                                      ++inc;
+                                      inc.display();
+                                      return 0;
+                                      }
+
+                                      //output 
+
+                                      Value is 15
+                                      
+                                      
+
+                                    **2)** Binary  Operator overloading
                                     class Complex {
                                     private:
                                     	int real, imag;
@@ -76,6 +113,7 @@
                                     	Complex c3 = c1 + c2;
                                     	c3.print();
                                     }
+
 
 ## Run time polymorphism : Virtual Functions
 
