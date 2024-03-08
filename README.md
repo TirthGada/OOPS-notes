@@ -1,7 +1,13 @@
+
+Unary Operators: These are operators that work with only one operand. Examples include the unary minus (-), unary plus (+), logical NOT (!), and increment/decrement (++/--).
+
+Binary Operatrs: These are operators that work with two operands. Examples include arithmetic operators like addition (+), subtraction (-), multiplication (*), division (/), and comparison operators like equals (==), less than (<), greater than (>), etc.
+
 # POLYMORPHISM
 
 
-**one name , multiple forms**
+**one name , multiple forms** 
+i.e objects of different classe respond showing similar behaviours  
 
 **Compile-time and Runtime are the two programming terms used in the software development. Compile-time is the time at which the source code is converted into an executable code while the run time is the time at which the executable code is started running. Both the compile-time and runtime refer to different types of error.**
 
@@ -117,6 +123,48 @@ For example, in a programming language that supports operator overloading, you c
 
 ## Run time polymorphism : Virtual Functions
 
+
+<img width="1440" alt="Screenshot 2024-03-08 at 9 12 45 PM" src="https://github.com/TirthGada/OOPS-notes/assets/118129263/5abf11d2-25e0-4707-9b31-6b86adea944e">
+
+The photo added above is also a example of run time polymorphism since when there 2 functions with same name , one from derived & base class , it is decided at run time to which function to use .
+
+To overcome above issue of run time polymorphism if we want we can use virtual function shown below
+
+
+
+***********
+
+# Virtual Function 
+        
+        class BaseClass{
+            public:
+                int var_base=1;
+                virtual void display(){
+                    cout<<"1 Dispalying Base class variable var_base "<<var_base<<endl;
+                }
+        };
+        
+        class DerivedClass : public BaseClass{
+            public:
+                    int var_derived=2;
+                    void display(){
+                        cout<<"2 Dispalying Base class variable var_base "<<var_base<<endl;
+                        cout<<"2 Dispalying Derived class variable var_derived "<<var_derived<<endl;
+                    }
+        };
+
+        int main(){
+            BaseClass * base_class_pointer;
+            BaseClass obj_base;
+            DerivedClass obj_derived;
+        
+            base_class_pointer = &obj_derived;
+            base_class_pointer->display();
+            return 0;
+        }
+
+
+**Since here the function display is made virtual , the function will be runned of base class**
 
 
 **********
