@@ -34,3 +34,14 @@ therefore total = **O(V+2E))**
 ii)Directed graph = O(E)
 
 therefore total = **O(V+E)**
+
+**Space complexity is O(V) as we use queue data structure**
+
+
+# Djikstra 
+
+for time complexity watch 
+
+**https://www.youtube.com/watch?v=3dINsjyfooY&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=34**
+
+O(Elog(v))
