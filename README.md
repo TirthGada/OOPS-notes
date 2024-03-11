@@ -166,6 +166,151 @@ To overcome above issue of run time polymorphism if we want we can use virtual f
 
 **Since here the function display is made virtual , the function will be runned of base class**
 
+*******
+
+        
+        class CWH{
+            protected:
+                string title;
+                float rating;
+            public:
+                CWH(string s, float r){
+                    title =  s;
+                    rating = r;
+                }
+                virtual void display(){}
+        };
+        
+        class CWHVideo: public CWH
+        {
+            float videoLength;
+            public:
+                CWHVideo(string s, float r, float vl): CWH(s, r){
+                    videoLength = vl;
+                }
+                void display(){
+                    cout<<"This is an amazing video with title "<<title<<endl;
+                    cout<<"Ratings: "<<rating<<" out of 5 stars"<<endl;
+                    cout<<"Length of this video is: "<<videoLength<<" minutes"<<endl;
+                }
+        };    
+        
+        class CWHText: public CWH
+        {
+            int words;
+            public:
+                CWHText(string s, float r, int wc): CWH(s, r){
+                    words = wc;
+                }
+             void display(){
+              cout<<"This is an amazing text tutorial with title "<<title<<endl;
+              cout<<"Ratings of this text tutorial: "<<rating<<" out of 5 stars"<<endl;
+              cout<<"No of words in this text tutorial is: "<<words<<" words"<<endl;
+                 }
+        };
+        
+        int main(){
+            string title;
+            float rating, vlen;
+            int words;
+        
+            // for Code With Harry Video
+            title = "Django tutorial";
+            vlen = 4.56;
+            rating = 4.89;
+            CWHVideo djVideo(title, rating, vlen);
+        
+            // for Code With Harry Text
+            title = "Django tutorial Text";
+            words = 433;
+            rating = 4.19;
+            CWHText djText(title, rating, words);
+        
+            CWH* tuts[2];
+            tuts[0] = &djVideo;
+            tuts[1] = &djText;
+        
+            tuts[0]->display();
+            tuts[1]->display();
+        
+            return 0;
+        }
+
+        // OUTPUT 
+         on doing tut0 & 1 display since base class display function has been made virtual , the derived class display functions will be running
+
+*********
+
+# PURE VIRTUAL FUNCTION
+
+        
+        class CWH{
+            protected:
+                string title;
+                float rating;
+            public:
+                CWH(string s, float r){
+                    title =  s;
+                    rating = r;
+                }
+                virtual void display()=0
+        };
+        
+        class CWHVideo: public CWH
+        {
+            float videoLength;
+            public:
+                CWHVideo(string s, float r, float vl): CWH(s, r){
+                    videoLength = vl;
+                }
+              
+        };    
+        
+        class CWHText: public CWH
+        {
+            int words;
+            public:
+                CWHText(string s, float r, int wc): CWH(s, r){
+                    words = wc;
+                }
+             void display(){
+              cout<<"This is an amazing text tutorial with title "<<title<<endl;
+              cout<<"Ratings of this text tutorial: "<<rating<<" out of 5 stars"<<endl;
+              cout<<"No of words in this text tutorial is: "<<words<<" words"<<endl;
+                 }
+        };
+        
+        int main(){
+            string title;
+            float rating, vlen;
+            int words;
+        
+            // for Code With Harry Video
+            title = "Django tutorial";
+            vlen = 4.56;
+            rating = 4.89;
+            CWHVideo djVideo(title, rating, vlen);
+        
+            // for Code With Harry Text
+            title = "Django tutorial Text";
+            words = 433;
+            rating = 4.19;
+            CWHText djText(title, rating, words);
+        
+            CWH* tuts[2];
+            tuts[0] = &djVideo;
+            tuts[1] = &djText;
+        
+            tuts[0]->display();
+            tuts[1]->display();
+        
+            return 0;
+        }
+
+the code modification done in base class display function makes it pure virtual function which says u have to define the same name waala function in the derived class 
+
+this code will give error as i had made base class function **pure virtual** but removed one of the derived class's function
+
 
 **********
 # Encapsulation
