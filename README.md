@@ -1,4 +1,4 @@
-
+## object doesnt consume memory @run time
 Unary Operators: These are operators that work with only one operand. Examples include the unary minus (-), unary plus (+), logical NOT (!), and increment/decrement (++/--).
 
 Binary Operatrs: These are operators that work with two operands. Examples include arithmetic operators like addition (+), subtraction (-), multiplication (*), division (/), and comparison operators like equals (==), less than (<), greater than (>), etc.
