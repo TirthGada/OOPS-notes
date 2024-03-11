@@ -243,6 +243,11 @@ To overcome above issue of run time polymorphism if we want we can use virtual f
 
 # PURE VIRTUAL FUNCTION
 
+Pure virtual function if made of base class it imposes a condition u need to overwrite same function in every derived class
+
+**Abstract base class is also correlated to Pure virtual function**
+
+Abstract base class means those class which cant be used to create objects directly , but can be used by created derived classes and creating objects of them . Therefore by declaring a pure virtual function there is no meaning of creating object of base class which inturn proves correlation btwin abstract base class and pure virtual function
         
         class CWH{
             protected:
