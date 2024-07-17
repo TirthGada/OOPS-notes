@@ -106,6 +106,30 @@ It is initialized before any object of this class is created, even before the ma
 It is visible only within the class, but its lifetime is the entire program.
 
 
+Two properties of static functions are:
+1> They can access static data members only
+2> They can run without making any object for the class
+
+Static local variable = class variables
+Visibility: class
+Lifetime: till termination of program
+Default value:0
+Storage:heap
+
+Local Variable
+Visibility: class
+Lifetime: until execution of class
+Default value:garbage
+Storage:stack
+
+Global variable
+Visibility: file
+Lifetime: till termination of program
+Default value:0
+Storage:heap
+
+
+
                 class A {
                 public:
                 	A() 
